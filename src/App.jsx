@@ -7,6 +7,13 @@ import WaitlistForm from './components/WaitlistForm'
 gsap.registerPlugin(ScrollTrigger)
 
 function App() {
+  const scrollToForm = () => {
+    const formSection = document.getElementById('waitlist-form')
+    if (formSection) {
+      formSection.scrollIntoView({ behavior: 'smooth', block: 'center' })
+    }
+  }
+
   useEffect(() => {
     // GSAP text animations
     const sections = document.querySelectorAll('section')
@@ -94,6 +101,18 @@ function App() {
     <div className="bg-zinc-950">
       <ParallaxScene />
 
+      {/* Header with Join Waitlist Button */}
+      <header className="fixed top-0 left-0 right-0 z-20 pointer-events-none">
+        <div className="max-w-7xl mx-auto px-8 py-6 flex justify-end">
+          <button
+            onClick={scrollToForm}
+            className="pointer-events-auto px-6 py-3 bg-white text-zinc-950 font-semibold rounded-lg hover:bg-white/90 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-white/50 shadow-lg hover:shadow-xl transform hover:scale-105"
+          >
+            Join Waitlist
+          </button>
+        </div>
+      </header>
+
       <div className="relative z-10 pointer-events-none">
         <section className="h-screen flex items-center justify-center px-8">
           <div className="max-w-7xl pointer-events-auto">
@@ -117,7 +136,7 @@ function App() {
           </div>
         </section>
 
-        <section className="min-h-screen flex items-center justify-center px-8 pointer-events-auto">
+        <section id="waitlist-form" className="min-h-screen flex items-center justify-center px-8 pointer-events-auto">
           <WaitlistForm />
         </section>
       </div>
