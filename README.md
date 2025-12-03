@@ -1,11 +1,13 @@
-# Parallax Light Field Interface
+# Mnada Waitlist
 
-A React + Vite implementation of a parallax light field interface with Three.js and GSAP animations.
+A beautiful, interactive waitlist landing page for Mnada — where style meets community. Built with React, Vite, Three.js, and GSAP animations.
 
 ## Features
 
-- **Three.js 3D Scene**: Wireframe geometric shapes (spheres, boxes, octahedrons, tetrahedrons, toruses) with parallax scrolling
+- **Interactive 3D Parallax Scene**: Wireframe geometric shapes (spheres, boxes, octahedrons, tetrahedrons, toruses) with parallax scrolling
 - **GSAP Animations**: Smooth scroll-triggered text animations
+- **Animated Waitlist Form**: Interactive form with animated eyes that follow your cursor and react to typing
+- **Google Sheets Integration**: Automatically saves form submissions to Google Sheets
 - **Dark Mode**: Beautiful dark theme with bright wireframe outlines
 - **Parallax Effects**: Multiple layers moving at different speeds based on scroll position
 - **Mouse Interaction**: 3D scene responds to mouse movement
@@ -66,14 +68,30 @@ See the setup guide for detailed instructions.
 ```
 ├── src/
 │   ├── components/
-│   │   └── ParallaxScene.jsx    # Three.js scene component
+│   │   ├── ParallaxScene.jsx    # Three.js parallax scene component
+│   │   └── WaitlistForm.jsx      # Animated waitlist form with Google Sheets integration
 │   ├── App.jsx                   # Main app component
 │   ├── main.jsx                  # React entry point
 │   └── index.css                 # Global styles with Tailwind
 ├── index.html
 ├── package.json
 ├── vite.config.js
-└── tailwind.config.js
+├── tailwind.config.js
+├── GOOGLE_SHEETS_SETUP.md        # Setup guide for Google Sheets integration
+└── .env                          # Environment variables (not in git)
 ```
 
-# mnada-waitlist
+## Environment Setup
+
+**Important**: The `.env` file is not tracked in git for security. You need to create it locally:
+
+1. Create a `.env` file in the root directory
+2. Add your Google Apps Script URL:
+   ```
+   VITE_GOOGLE_SCRIPT_URL=your_google_apps_script_url_here
+   ```
+3. Never commit this file to git (it's already in `.gitignore`)
+
+## About Mnada
+
+Mnada is building a space where you can buy and sell clothing you love, discover unique pieces, and connect with people who share your style. Join the waitlist to get early access to the next generation of fashion and social interaction.
